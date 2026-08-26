@@ -1,0 +1,10 @@
+/* Garante que o tamanho dos elementos
+   considere o padding e a borda. */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove a margem padrão do navegador. */
+body {
+  margin: 0;
+}

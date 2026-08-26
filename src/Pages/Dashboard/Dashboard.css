@@ -1,0 +1,680 @@
+/* Faz o cálculo de tamanho considerar bordas e espaçamento. */
+* {
+  box-sizing: border-box;
+}
+
+/* Container principal do Dashboard. */
+.dashboard {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #c0e2d1;
+
+  color: #00351b;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+/* Menu lateral esquerdo. */
+.sidebar {
+  width: 255px;
+  min-height: 100vh;
+
+  padding: 25px 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #e4fff1;
+
+  border-right: 1px solid #00691786;
+}
+
+/* Área do logo. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 8px 12px 28px;
+
+  border-bottom: 1px solid #40a000fd;
+}
+
+/* Fundo do logo. */
+.brand-logo {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #005a1b;
+
+  font-size: 23px;
+}
+
+/* Nome da empresa. */
+.brand h2 {
+  margin: 0;
+
+  font-size: 19px;
+
+  color: #1c6d49;
+}
+
+/* Subtítulo da empresa. */
+.brand span {
+  font-size: 11px;
+
+  color: #77817b;
+}
+
+/* Espaçamento do menu. */
+.menu {
+  margin-top: 25px;
+}
+
+/* Cada item do menu. */
+.menu-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px 14px;
+
+  margin-bottom: 6px;
+
+  border-radius: 10px;
+
+  color: #617068;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+/* Largura da área dos ícones. */
+.menu-item span {
+  width: 20px;
+
+  text-align: center;
+}
+
+/* Efeito ao passar o mouse. */
+.menu-item:hover {
+  background: #edf6f0;
+
+  color: #1c6d49;
+}
+
+/* Item atualmente selecionado. */
+.menu-item.active {
+  background: #dff0e6;
+
+  color: #1c6d49;
+
+  font-weight: bold;
+}
+
+/* Coloca a parte inferior no final da sidebar. */
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+/* Área principal do Dashboard. */
+.dashboard-content {
+  flex: 1;
+
+  padding: 30px 38px;
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   TOPO
+========================= */
+
+/* Cabeçalho do Dashboard. */
+.topbar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+/* Título. */
+.topbar h1 {
+  margin: 0 0 5px;
+
+  font-size: 30px;
+}
+
+/* Descrição abaixo do título. */
+.topbar p {
+  margin: 0;
+
+  color: #7a847e;
+
+  font-size: 14px;
+}
+
+/* Área de usuário. */
+.user-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+/* Botão de notificação. */
+.notification {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: white;
+
+  border: 1px solid #e5eae7;
+
+  cursor: pointer;
+}
+
+/* Nome e cargo do usuário. */
+.user-info {
+  display: flex;
+
+  flex-direction: column;
+
+  text-align: right;
+}
+
+/* Nome do usuário. */
+.user-info strong {
+  font-size: 13px;
+}
+
+/* Cargo do usuário. */
+.user-info span {
+  font-size: 11px;
+
+  color: #7d8781;
+
+  margin-top: 3px;
+}
+
+/* Foto/avatar provisório. */
+.avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #24794f;
+
+  color: white;
+
+  font-weight: bold;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+/* Organiza os cards em quatro colunas. */
+.summary-cards {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+/* Card individual. */
+.summary-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  background: white;
+
+  border: 1px solid #e8ece9;
+
+  border-radius: 14px;
+}
+
+/* Ícone do card. */
+.card-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #e4f2e9;
+
+  font-size: 22px;
+}
+
+/* Texto pequeno do card. */
+.summary-card span {
+  display: block;
+
+  color: #7c857f;
+
+  font-size: 12px;
+
+  margin-bottom: 6px;
+}
+
+/* Número principal. */
+.summary-card strong {
+  display: block;
+
+  font-size: 26px;
+}
+
+/* Fundo diferente para o card de alerta. */
+.summary-card.warning .card-icon {
+  background: #fff1d8;
+}
+
+/* =========================
+   GRID
+========================= */
+
+/* Divide a parte inferior em duas colunas. */
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 1fr;
+
+  gap: 20px;
+}
+
+/* Card branco de conteúdo. */
+.panel {
+  background: white;
+
+  border: 1px solid #e8ece9;
+
+  border-radius: 14px;
+
+  padding: 22px;
+}
+
+/* Cabeçalho de cada painel. */
+.panel-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+/* Título do painel. */
+.panel-header h2 {
+  margin: 0 0 5px;
+
+  font-size: 17px;
+}
+
+/* Subtítulo do painel. */
+.panel-header p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: #808983;
+}
+
+/* Link "Ver todos". */
+.panel-header a {
+  color: #24794f;
+
+  font-size: 12px;
+
+  text-decoration: none;
+}
+
+/* =========================
+   VENCIMENTOS
+========================= */
+
+/* Cada item de vencimento. */
+.deadline-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 0;
+
+  border-top: 1px solid #edf0ee;
+}
+
+/* Informações do cliente/licença. */
+.deadline-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+/* Nome da licença. */
+.deadline-info strong {
+  font-size: 13px;
+}
+
+/* Empresa relacionada à licença. */
+.deadline-info span {
+  font-size: 11px;
+
+  color: #858e89;
+}
+
+/* Data do vencimento. */
+.deadline-date {
+  text-align: right;
+}
+
+/* Texto da data. */
+.deadline-date strong {
+  display: block;
+
+  font-size: 12px;
+
+  margin-bottom: 5px;
+}
+
+/* Estilo geral do status. */
+.status {
+  display: inline-block;
+
+  padding: 4px 8px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+}
+
+/* Status urgente. */
+.status.urgent {
+  background: #fde4e4;
+
+  color: #bb3939;
+}
+
+/* Status de atenção. */
+.status.attention {
+  background: #fff0d3;
+
+  color: #a26a00;
+}
+
+/* Status normal. */
+.status.normal {
+  background: #e2f2e8;
+
+  color: #24794f;
+}
+
+/* =========================
+   AGENDA
+========================= */
+
+/* Item da agenda. */
+.agenda-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 15px 0;
+
+  border-top: 1px solid #edf0ee;
+}
+
+/* Quadrado com a data. */
+.agenda-date {
+  width: 48px;
+  height: 52px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e4f2e9;
+
+  color: #24794f;
+}
+
+/* Número do dia. */
+.agenda-date strong {
+  font-size: 18px;
+}
+
+/* Mês. */
+.agenda-date span {
+  font-size: 9px;
+
+  font-weight: bold;
+}
+
+/* Informações do compromisso. */
+.agenda-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+/* Nome do compromisso. */
+.agenda-info strong {
+  font-size: 13px;
+}
+
+/* Horário e local. */
+.agenda-info span {
+  color: #858e89;
+
+  font-size: 11px;
+}
+
+/* =========================
+   AÇÕES
+========================= */
+
+/* Área de acesso rápido. */
+.quick-actions {
+  margin-top: 25px;
+}
+
+/* Título. */
+.quick-actions h2 {
+  font-size: 17px;
+
+  margin-bottom: 15px;
+}
+
+/* Organiza os botões. */
+.actions {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+/* Botão de atalho. */
+.quick-button {
+  display: flex;
+
+  align-items: center;
+
+  width: auto;
+
+  padding: 11px 16px;
+
+  border: 1px solid #dce7df;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #24794f;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+/* Efeito ao passar o mouse. */
+.quick-button:hover {
+  background: #edf6f0;
+}
+
+/* Espaço entre o + e o texto. */
+.quick-button span {
+  margin-right: 6px;
+
+  font-size: 15px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+/* Ajustes para telas médias. */
+@media (max-width: 1100px) {
+
+  /* Reduz os cards para duas colunas. */
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Coloca os painéis um abaixo do outro. */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* Ajustes para tablets. */
+@media (max-width: 800px) {
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .dashboard-content {
+    padding: 25px 20px;
+  }
+
+}
+
+/* Ajustes para celulares. */
+@media (max-width: 650px) {
+
+  /* Empilha sidebar e conteúdo. */
+  .dashboard {
+    flex-direction: column;
+  }
+
+  /* Sidebar passa a ocupar a largura toda. */
+  .sidebar {
+    width: 100%;
+
+    min-height: auto;
+  }
+
+  /* Menu pode rolar horizontalmente. */
+  .menu {
+    display: flex;
+
+    overflow-x: auto;
+  }
+
+  /* Evita quebrar o texto dos botões. */
+  .menu-item {
+    white-space: nowrap;
+  }
+
+  /* Esconde o menu inferior no celular. */
+  .sidebar-bottom {
+    display: none;
+  }
+
+  /* Ajusta o cabeçalho. */
+  .topbar {
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  /* Esconde informações extras do usuário. */
+  .user-info {
+    display: none;
+  }
+
+  /* Deixa os cards em uma coluna. */
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+}

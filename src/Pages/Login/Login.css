@@ -1,0 +1,256 @@
+/* Faz todos os elementos considerarem padding e bordas
+   dentro do tamanho definido. */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove a margem padrão do navegador. */
+body {
+  margin: 0;
+}
+
+/* Container principal da tela de login. */
+.login-page {
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+}
+
+/* =========================
+   LADO ESQUERDO
+========================= */
+
+/* Área verde de apresentação do sistema. */
+.login-info {
+  width: 50%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px;
+
+  /* Degradê usado no fundo. */
+  background: linear-gradient(
+    180deg,
+    #d9f0dc 0%,
+    #a8c8b4 45%,
+    #58816f 100%
+  );
+
+  color: white;
+}
+
+/* Controla a largura do texto. */
+.info-content {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Título principal. */
+.info-content h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* Textos da apresentação. */
+.info-content p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   LADO DIREITO
+========================= */
+
+/* Área branca onde fica o formulário. */
+.login-form-area {
+  width: 50%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+
+  /* Arredonda o encontro entre os dois lados. */
+  border-radius: 40px 0 0 40px;
+
+  margin-left: -25px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* Card que contém o formulário. */
+.login-card {
+  width: 90%;
+  max-width: 470px;
+
+  padding: 40px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+/* Centraliza o logo e o nome. */
+.logo-area {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Tamanho do logo provisório. */
+.logo-placeholder {
+  font-size: 70px;
+}
+
+/* Nome do sistema. */
+.logo-area h2 {
+  font-size: 26px;
+  color: #111;
+  margin: 5px 0;
+}
+
+/* Texto abaixo do nome. */
+.logo-area span {
+  color: #333;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+
+/* Espaçamento entre os campos. */
+.input-group {
+  margin-bottom: 22px;
+}
+
+/* Texto dos campos. */
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+
+  font-weight: bold;
+  color: #222;
+}
+
+/* Campos de entrada. */
+.input-group input {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 15px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+/* Efeito quando o campo recebe foco. */
+.input-group input:focus {
+  border-color: #24794f;
+  box-shadow: 0 0 0 2px rgba(36, 121, 79, 0.12);
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+/* Botão de entrar. */
+.login-card button {
+  display: block;
+
+  width: 150px;
+  height: 46px;
+
+  margin: 10px auto 0;
+
+  border: none;
+  border-radius: 25px;
+
+  background: #24794f;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* Efeito quando passa o mouse no botão. */
+.login-card button:hover {
+  background: #1d6341;
+}
+
+/* =========================
+   ESQUECI SENHA
+========================= */
+
+/* Estilo do link de recuperação. */
+.forgot-password {
+  display: block;
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: #24794f;
+  text-decoration: none;
+}
+
+/* Sublinha o link quando passa o mouse. */
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+/* Adapta a tela para telas menores. */
+@media (max-width: 900px) {
+
+  /* Coloca as duas áreas uma embaixo da outra. */
+  .login-page {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  /* Área de apresentação ocupa toda a largura. */
+  .login-info {
+    width: 100%;
+    min-height: 35vh;
+    padding: 40px;
+  }
+
+  /* Diminui o título no celular. */
+  .info-content h1 {
+    font-size: 30px;
+  }
+
+  /* Diminui os textos no celular. */
+  .info-content p {
+    font-size: 16px;
+  }
+
+  /* Formulário ocupa a largura inteira. */
+  .login-form-area {
+    width: 100%;
+    min-height: 65vh;
+
+    margin-left: 0;
+
+    border-radius: 35px 35px 0 0;
+  }
+
+}
