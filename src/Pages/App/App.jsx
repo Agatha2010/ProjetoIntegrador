@@ -39,7 +39,7 @@ import DetalhesCliente from "../Clientes/DetalhesCliente";
 // Página para editar um cliente
 import EditarCliente from "../Clientes/EditarCliente";
 
-
+import RecuperarSenha from "../Login/RecuperacaoSenha/RecuperarSenha";
 // =====================================================
 // PÁGINA DE LICENÇAS
 // =====================================================
@@ -64,6 +64,7 @@ function App() {
           ROTAS DO SISTEMA
       ================================================= */}
 
+        
       <Routes>
 
 
@@ -93,6 +94,10 @@ function App() {
           element={
             <Login />
           }
+        />
+        <Route
+          path="/recuperar-senha"
+         element={<RecuperarSenha />}
         />
 
 
