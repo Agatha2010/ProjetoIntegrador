@@ -1,348 +1,84 @@
-// Importa o Link do React Router.
-// Ele permite navegar entre as páginas sem recarregar o site.
 import { Link } from "react-router-dom";
-
-// Importa os estilos da página de clientes.
-import "./Clientes.css";
+import styles from "./Clientes.module.css";
 
 function Clientes() {
-
-  // Lista provisória de clientes.
-  // Depois, esses dados poderão vir do banco de dados.
   const clientes = [
-    {
-      id: 1,
-      nome: "Empresa Verde Ltda.",
-      cnpj: "12.345.678/0001-90",
-      responsavel: "Mariana Silva",
-      telefone: "(51) 99999-1234",
-      status: "Ativo",
-    },
-    {
-      id: 2,
-      nome: "AgroSul Ltda.",
-      cnpj: "23.456.789/0001-81",
-      responsavel: "Carlos Oliveira",
-      telefone: "(51) 98888-4321",
-      status: "Ativo",
-    },
-    {
-      id: 3,
-      nome: "Indústria Sustentável",
-      cnpj: "34.567.890/0001-72",
-      responsavel: "Fernanda Costa",
-      telefone: "(51) 97777-5678",
-      status: "Ativo",
-    },
-    {
-      id: 4,
-      nome: "Eco Norte Comércio",
-      cnpj: "45.678.901/0001-63",
-      responsavel: "Lucas Pereira",
-      telefone: "(51) 96666-8765",
-      status: "Pendente",
-    },
+    { id: 1, nome: "Empresa Verde Ltda.", cnpj: "12.345.678/0001-90", responsavel: "Mariana Silva", telefone: "(51) 99999-1234", status: "Ativo", desde: "2023-01-15" },
+    { id: 2, nome: "AgroSul Ltda.", cnpj: "23.456.789/0001-81", responsavel: "Carlos Oliveira", telefone: "(51) 98888-4321", status: "Ativo", desde: "2023-03-22" },
+    { id: 3, nome: "Indústria Sustentável S.A.", cnpj: "34.567.890/0001-72", responsavel: "Fernanda Costa", telefone: "(51) 97777-5678", status: "Ativo", desde: "2023-06-10" },
+    { id: 4, nome: "Eco Norte Comércio", cnpj: "45.678.901/0001-63", responsavel: "Lucas Pereira", telefone: "(51) 96666-8765", status: "Pendente", desde: "2023-09-05" },
+    { id: 5, nome: "BioEnergia do Brasil", cnpj: "56.789.012/0001-54", responsavel: "Ana Beatriz Souza", telefone: "(51) 95555-2345", status: "Ativo", desde: "2023-11-18" },
+    { id: 6, nome: "ReciclaMais Indústrias", cnpj: "67.890.123/0001-45", responsavel: "Roberto Mendes", telefone: "(51) 94444-6789", status: "Inativo", desde: "2022-08-12" },
+    { id: 7, nome: "Verde Campo Agropecuária", cnpj: "78.901.234/0001-36", responsavel: "Patrícia Lima", telefone: "(51) 93333-7890", status: "Ativo", desde: "2023-04-28" },
+    { id: 8, nome: "EcoTech Soluções", cnpj: "89.012.345/0001-27", responsavel: "Ricardo Nunes", telefone: "(51) 92222-8901", status: "Pendente", desde: "2023-12-01" },
   ];
 
+  const formatDate = (d) => new Date(d).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+
   return (
-    <div className="clientes-page">
-
-      {/* =========================
-          CABEÇALHO
-      ========================= */}
-
-      <div className="clientes-header">
-
+    <div className={styles.page}>
+      <div className={styles.header}>
         <div>
-
-          {/* Botão para voltar ao Dashboard */}
-          <Link
-            to="/dashboard"
-            className="back-button"
-          >
-            ← Dashboard
-          </Link>
-
-          {/* Título da página */}
-          <h1>
-            Clientes
-          </h1>
-
-          {/* Descrição */}
-          <p>
-            Gerencie os clientes da empresa
-          </p>
-
+          <Link to="/dashboard" className={styles.backButton}>← Dashboard</Link>
+          <h1>Clientes</h1>
+          <p>Gerencie todos os clientes da empresa</p>
         </div>
-
-        {/* Botão para cadastrar um novo cliente */}
-        <Link
-          to="/novo-cliente"
-          className="new-client-button"
-        >
-          + Novo cliente
-        </Link>
-
+        <Link to="/novo-cliente" className={styles.newButton}>+ Novo cliente</Link>
       </div>
 
-      {/* =========================
-          CARDS DE RESUMO
-      ========================= */}
-
-      <div className="clientes-summary">
-
-        {/* Total de clientes */}
-        <div className="client-summary-card">
-          <span>
-            Total de clientes
-          </span>
-
-          <strong>
-            32
-          </strong>
+      <div className={styles.summary}>
+        <div className={styles.summaryCard}>
+          <div className={styles.cardHeader}><span className={styles.cardIcon}>👤</span><span>Total de clientes</span></div>
+          <strong>{clientes.length}</strong>
         </div>
-
-        {/* Clientes ativos */}
-        <div className="client-summary-card">
-          <span>
-            Clientes ativos
-          </span>
-
-          <strong>
-            29
-          </strong>
+        <div className={styles.summaryCard}>
+          <div className={styles.cardHeader}><span className={styles.cardIcon}>✅</span><span>Clientes ativos</span></div>
+          <strong>{clientes.filter(c => c.status === "Ativo").length}</strong>
         </div>
-
-        {/* Clientes pendentes */}
-        <div className="client-summary-card">
-          <span>
-            Clientes pendentes
-          </span>
-
-          <strong>
-            3
-          </strong>
+        <div className={styles.summaryCard}>
+          <div className={styles.cardHeader}><span className={styles.cardIcon}>⏳</span><span>Clientes pendentes</span></div>
+          <strong>{clientes.filter(c => c.status === "Pendente").length}</strong>
         </div>
-
+        <div className={styles.summaryCard}>
+          <div className={styles.cardHeader}><span className={styles.cardIcon}>👤</span><span>Último cadastro</span></div>
+          <strong style={{ fontSize: "18px" }}>08 dez 2023</strong>
+        </div>
       </div>
 
-      {/* =========================
-          TABELA
-      ========================= */}
-
-      <div className="clientes-panel">
-
-        {/* Barra de busca e filtro */}
-        <div className="clientes-toolbar">
-
-          {/* Campo de busca */}
-          <div className="search-box">
-
-            <span>
-              ⌕
-            </span>
-
-            <input
-              type="text"
-              placeholder="Buscar cliente..."
-            />
-
+      <div className={styles.tablePanel}>
+        <div className={styles.toolbar}>
+          <div className={styles.searchBox}><span>👤</span><input type="text" placeholder="Buscar cliente..." /></div>
+          <div className={styles.toolbarRight}>
+            <select><option>Todos</option><option>Ativos</option><option>Pendentes</option></select>
           </div>
-
-          {/* Filtro por status */}
-          <select>
-
-            <option>
-              Todos os clientes
-            </option>
-
-            <option>
-              Ativos
-            </option>
-
-            <option>
-              Pendentes
-            </option>
-
-          </select>
-
         </div>
-
-        {/* Container da tabela */}
-        <div className="table-container">
-
-          <table>
-
-            {/* Cabeçalho da tabela */}
-            <thead>
-
-              <tr>
-
-                <th>
-                  Cliente
-                </th>
-
-                <th>
-                  CNPJ
-                </th>
-
-                <th>
-                  Responsável
-                </th>
-
-                <th>
-                  Telefone
-                </th>
-
-                <th>
-                  Status
-                </th>
-
-                <th>
-                  Ações
-                </th>
-
-              </tr>
-
-            </thead>
-
-            {/* Corpo da tabela */}
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead><tr><th>Cliente</th><th>CNPJ</th><th>Responsável</th><th>Telefone</th><th>Status</th><th>Desde</th><th>Ações</th></tr></thead>
             <tbody>
-
-              {/* Percorre todos os clientes */}
-              {clientes.map((cliente) => (
-
-                <tr key={cliente.id}>
-
-                  {/* Nome do cliente */}
-                  <td>
-
-                    <div className="client-name">
-
-                      {/* Primeira letra do nome */}
-                      <div className="client-avatar">
-                        {cliente.nome.charAt(0)}
-                      </div>
-
-                      <strong>
-                        {cliente.nome}
-                      </strong>
-
-                    </div>
-
-                  </td>
-
-                  {/* CNPJ */}
-                  <td>
-                    {cliente.cnpj}
-                  </td>
-
-                  {/* Responsável */}
-                  <td>
-                    {cliente.responsavel}
-                  </td>
-
-                  {/* Telefone */}
-                  <td>
-                    {cliente.telefone}
-                  </td>
-
-                  {/* Status */}
-                  <td>
-
-                    <span
-                      className={
-                        cliente.status === "Ativo"
-                          ? "status-client active"
-                          : "status-client pending"
-                      }
-                    >
-                      {cliente.status}
-                    </span>
-
-                  </td>
-
-                  {/* Botões */}
-                  <td>
-
-                    <div className="table-actions">
-
-                      {/* Visualizar cliente */}
-                      <Link
-                        to={`/clientes/${cliente.id}`}
-                        className="action-button"
-                        title="Visualizar cliente"
-                      >
-                        👁
-                      </Link>
-
-                      {/* Editar cliente */}
-                      <Link
-                        to={`/clientes/${cliente.id}/editar`}
-                        className="action-button"
-                        title="Editar cliente"
-                      >
-                        ✎
-                      </Link>
-
-                    </div>
-
-                  </td>
-
+              {clientes.map(c => (
+                <tr key={c.id}>
+                  <td><div className={styles.clientName}><div className={styles.clientAvatar}>{c.nome.charAt(0)}</div><strong>{c.nome}</strong></div></td>
+                  <td>{c.cnpj}</td><td>{c.responsavel}</td><td>{c.telefone}</td>
+                  <td><span className={`${styles.statusBadge} ${c.status === "Ativo" ? styles.active : c.status === "Pendente" ? styles.pending : styles.inactive}`}><span className={styles.dot}></span>{c.status}</span></td>
+                  <td>{formatDate(c.desde)}</td>
+                  <td><div className={styles.actionButtons}>
+                    <Link to={`/clientes/${c.id}`} className={`${styles.actionBtn} ${styles.view}`}>👤</Link>
+                    <Link to={`/clientes/${c.id}/editar`} className={`${styles.actionBtn} ${styles.edit}`}>✎</Link>
+                    <button className={`${styles.actionBtn} ${styles.delete}`}>x</button>
+                  </div></td>
                 </tr>
-
               ))}
-
             </tbody>
-
           </table>
-
         </div>
-
-        {/* =========================
-            PAGINAÇÃO
-        ========================= */}
-
-        <div className="pagination">
-
-          <span>
-            Mostrando 4 de 32 clientes
-          </span>
-
-          <div>
-
-            <button type="button">
-              ‹
-            </button>
-
-            <button
-              type="button"
-              className="current-page"
-            >
-              1
-            </button>
-
-            <button type="button">
-              2
-            </button>
-
-            <button type="button">
-              3
-            </button>
-
-            <button type="button">
-              ›
-            </button>
-
-          </div>
-
+        <div className={styles.pagination}>
+          <span>Mostrando 8 de 32 clientes</span>
+          <div className={styles.paginationButtons}><button disabled>‹</button><button className={styles.currentPage}>1</button><button>2</button><button>3</button><button>4</button><button>›</button></div>
         </div>
-
       </div>
-
     </div>
   );
 }
 
-// Exporta a página de Clientes.
 export default Clientes;

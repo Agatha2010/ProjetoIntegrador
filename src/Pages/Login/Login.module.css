@@ -1,0 +1,313 @@
+.page {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.leftPanel {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: linear-gradient(160deg, #0f3b1f 0%, #1a5a2e 35%, #24794f 65%, #2d8a5a 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+}
+
+.infoContent {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.iconLarge {
+  font-size: 72px;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.infoContent h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  color: #f0fce8;
+}
+
+.infoContent p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+}
+
+.benefits {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.90);
+  font-weight: 400;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.rightPanel {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fbf8;
+  border-radius: 40px 0 0 40px;
+  margin-left: -25px;
+  position: relative;
+  z-index: 2;
+  box-shadow: -8px 0 40px rgba(0, 20, 0, 0.06);
+}
+
+.card {
+  width: 90%;
+  max-width: 440px;
+  padding: 40px 36px;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 8px 48px rgba(0, 30, 0, 0.06);
+  border: 1px solid #e8f0e8;
+}
+
+.logoArea {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logoPlaceholder {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.logoArea h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f3b1f;
+  margin: 4px 0 2px;
+  letter-spacing: -0.3px;
+}
+
+.logoArea span {
+  color: #4a7a4a;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a3a1a;
+  letter-spacing: 0.2px;
+}
+
+.inputGroup input {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border: 2px solid #e4ece4;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1e2e1e;
+  background: #f9fcf9;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #24794f;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(36, 121, 79, 0.10);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0 24px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #3a5a3a;
+  cursor: pointer;
+}
+
+.rememberMe input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #24794f;
+  cursor: pointer;
+}
+
+.forgotPassword {
+  font-size: 14px;
+  color: #24794f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgotPassword:hover {
+  color: #1a5a2e;
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a5a2e 0%, #24794f 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(36, 121, 79, 0.25);
+  letter-spacing: 0.3px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(36, 121, 79, 0.30);
+  background: linear-gradient(135deg, #0f3b1f 0%, #1a5a2e 100%);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #4a6a4a;
+}
+
+.footer a {
+  color: #24794f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+  }
+  .leftPanel {
+    width: 100%;
+    min-height: 30vh;
+    padding: 32px 28px;
+    border-radius: 0 0 40px 40px;
+  }
+  .rightPanel {
+    width: 100%;
+    min-height: 70vh;
+    margin-left: 0;
+    border-radius: 35px 35px 0 0;
+    padding-top: 36px;
+  }
+  .infoContent h1 {
+    font-size: 28px;
+  }
+  .infoContent p {
+    font-size: 15px;
+  }
+  .iconLarge {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+  .benefitItem {
+    font-size: 14px;
+  }
+  .card {
+    padding: 28px 24px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leftPanel {
+    padding: 24px 18px;
+    min-height: 25vh;
+  }
+  .infoContent h1 {
+    font-size: 22px;
+  }
+  .infoContent p {
+    font-size: 13px;
+  }
+  .benefitItem {
+    font-size: 12px;
+  }
+  .rightPanel {
+    padding-top: 24px;
+  }
+  .card {
+    padding: 20px 16px;
+  }
+  .logoPlaceholder {
+    font-size: 36px;
+  }
+  .logoArea h2 {
+    font-size: 20px;
+  }
+  .button {
+    height: 44px;
+    font-size: 14px;
+  }
+}

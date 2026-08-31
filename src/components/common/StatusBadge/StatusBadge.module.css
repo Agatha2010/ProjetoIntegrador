@@ -1,0 +1,31 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active { background: var(--success-light); color: var(--success); }
+.active .dot { background: var(--success); }
+
+.pending { background: var(--warning-light); color: var(--warning); }
+.pending .dot { background: var(--warning); }
+
+.inactive { background: var(--danger-light); color: var(--danger); }
+.inactive .dot { background: var(--danger); }
+
+.expiring { background: var(--warning-light); color: var(--warning); }
+.expiring .dot { background: var(--warning); }
+
+.expired { background: var(--danger-light); color: var(--danger); }
+.expired .dot { background: var(--danger); }

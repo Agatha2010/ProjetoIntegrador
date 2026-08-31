@@ -1,195 +1,114 @@
-// Importa useState para controlar os campos do formulário.
 import { useState } from "react";
-
-// Importa Link e useNavigate para navegação.
 import { Link, useNavigate } from "react-router-dom";
-
-// Importa o CSS da página.
-import "./Clientes.css";
+import styles from "./Clientes.module.css";
 
 function NovoCliente() {
-
-  // Permite navegar para outra página depois de salvar.
   const navigate = useNavigate();
+  const [salvando, setSalvando] = useState(false);
 
-  // Guarda os dados preenchidos pelo usuário.
   const [form, setForm] = useState({
     nome: "",
     cnpj: "",
     responsavel: "",
+    segmento: "",
     telefone: "",
     email: "",
     endereco: "",
+    descricao: "",
   });
 
-  // Atualiza o campo que foi alterado.
   function handleChange(event) {
     const { name, value } = event.target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    setForm({ ...form, [name]: value });
   }
 
-  // Salva o cliente.
   function handleSubmit(event) {
     event.preventDefault();
+    setSalvando(true);
 
-    // Pega os clientes já salvos.
-    const clientesSalvos =
-      JSON.parse(localStorage.getItem("clientes")) || [];
+    setTimeout(() => {
+      const clientesSalvos = JSON.parse(localStorage.getItem("clientes")) || [];
 
-    // Cria um novo cliente com um ID.
-    const novoCliente = {
-      id: Date.now(),
-      ...form,
-      status: "Ativo",
-    };
+      const novoCliente = {
+        id: Date.now(),
+        ...form,
+        status: "Ativo",
+        desde: new Date().toISOString().split("T")[0],
+      };
 
-    // Adiciona o novo cliente à lista.
-    const novaLista = [
-      ...clientesSalvos,
-      novoCliente,
-    ];
+      const novaLista = [...clientesSalvos, novoCliente];
+      localStorage.setItem("clientes", JSON.stringify(novaLista));
 
-    // Salva a lista atualizada no navegador.
-    localStorage.setItem(
-      "clientes",
-      JSON.stringify(novaLista)
-    );
-
-    // Volta para a página de clientes.
-    navigate("/clientes");
+      setSalvando(false);
+      navigate("/clientes");
+    }, 1000);
   }
 
   return (
-    <div className="clientes-page">
-
-      <div className="clientes-header">
-
+    <div className={styles.page}>
+      <div className={styles.header}>
         <div>
- <Link
-   to="/clientes"
-   className="back-button"
- >
-   ← Clientes
- </Link>
-
- <h1>Novo cliente</h1>
-
- <p>
-   Cadastre um novo cliente no sistema
- </p>
+          <Link to="/clientes" className={styles.backButton}>← Clientes</Link>
+          <h1>➕ Novo cliente</h1>
+          <p>Cadastre um novo cliente no sistema</p>
         </div>
-
+        <div className={styles.infoBadge}>
+          <span className={styles.badge}>Novo cadastro</span>
+        </div>
       </div>
 
-      <div className="form-panel">
-
+      <div className={styles.formPanel}>
         <form onSubmit={handleSubmit}>
+          <div className={styles.formGrid}>
+            <div className={styles.formGroup}>
+              <label>Nome da empresa *</label>
+              <input type="text" name="nome" value={form.nome} onChange={handleChange} placeholder="Digite o nome da empresa" required />
+            </div>
 
- <div className="form-grid">
+            <div className={styles.formGroup}>
+              <label>CNPJ *</label>
+              <input type="text" name="cnpj" value={form.cnpj} onChange={handleChange} placeholder="00.000.000/0000-00" required />
+            </div>
 
-   <div className="form-group">
-     <label>Nome da empresa *</label>
+            <div className={styles.formGroup}>
+              <label>Responsável *</label>
+              <input type="text" name="responsavel" value={form.responsavel} onChange={handleChange} placeholder="Nome do responsável" required />
+            </div>
 
-     <input
-       type="text"
-       name="nome"
-       value={form.nome}
-       onChange={handleChange}
-       placeholder="Digite o nome da empresa"
-       required
-     />
-   </div>
+            <div className={styles.formGroup}>
+              <label>Segmento</label>
+              <input type="text" name="segmento" value={form.segmento} onChange={handleChange} placeholder="Ex: Consultoria, Energia" />
+            </div>
 
-   <div className="form-group">
-     <label>CNPJ *</label>
+            <div className={styles.formGroup}>
+              <label>Telefone</label>
+              <input type="text" name="telefone" value={form.telefone} onChange={handleChange} placeholder="(00) 00000-0000" />
+            </div>
 
-     <input
-       type="text"
-       name="cnpj"
-       value={form.cnpj}
-       onChange={handleChange}
-       placeholder="00.000.000/0000-00"
-       required
-     />
-   </div>
+            <div className={styles.formGroup}>
+              <label>E-mail</label>
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="empresa@email.com" />
+            </div>
 
-   <div className="form-group">
-     <label>Responsável *</label>
+            <div className={styles.formGroup}>
+              <label>Endereço</label>
+              <input type="text" name="endereco" value={form.endereco} onChange={handleChange} placeholder="Endereço completo" />
+            </div>
 
-     <input
-       type="text"
-       name="responsavel"
-       value={form.responsavel}
-       onChange={handleChange}
-       placeholder="Nome do responsável"
-       required
-     />
-   </div>
+            <div className={styles.formGroup}>
+              <label>Descrição</label>
+              <input type="text" name="descricao" value={form.descricao} onChange={handleChange} placeholder="Breve descrição" />
+            </div>
+          </div>
 
-   <div className="form-group">
-     <label>Telefone</label>
-
-     <input
-       type="text"
-       name="telefone"
-       value={form.telefone}
-       onChange={handleChange}
-       placeholder="(00) 00000-0000"
-     />
-   </div>
-
-   <div className="form-group">
-     <label>E-mail</label>
-
-     <input
-       type="email"
-       name="email"
-       value={form.email}
-       onChange={handleChange}
-       placeholder="empresa@email.com"
-     />
-   </div>
-
-   <div className="form-group">
-     <label>Endereço</label>
-
-     <input
-       type="text"
-       name="endereco"
-       value={form.endereco}
-       onChange={handleChange}
-       placeholder="Endereço da empresa"
-     />
-   </div>
-
- </div>
-
- <div className="form-actions">
-
-   <Link
-     to="/clientes"
-     className="cancel-button"
-   >
-     Cancelar
-   </Link>
-
-   <button
-     type="submit"
-     className="save-button"
-   >
-     Salvar cliente
-   </button>
-
- </div>
-
+          <div className={styles.formActions}>
+            <Link to="/clientes" className={styles.cancelButton}>❌ Cancelar</Link>
+            <button type="submit" className={styles.saveButton} disabled={salvando}>
+              {salvando ? "��� Salvando..." : "��� Salvar cliente"}
+            </button>
+          </div>
         </form>
-
       </div>
-
     </div>
   );
 }
