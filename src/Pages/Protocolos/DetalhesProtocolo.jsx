@@ -20,12 +20,13 @@ function DetalhesProtocolo() {
         status: "Em andamento",
         responsavel: "Mariana Silva",
         prioridade: "Alta",
-        descricao: "Protocolo para licenciamento ambiental da nova unidade.",
-        observacoes: "Documentação em análise pelo órgão ambiental.",
+        descricao: "Protocolo para licenciamento ambiental da nova unidade da empresa. Inclui análise de impacto ambiental e adequação às normas vigentes.",
+        observacoes: "Documentação em análise pelo órgão ambiental. Aguardando parecer técnico do IBAMA. Previsão de vistoria para o próximo mês.",
         historico: [
           { data: "2023-01-20", evento: "Protocolo aberto" },
           { data: "2023-02-15", evento: "Documentação enviada ao IBAMA" },
           { data: "2023-03-10", evento: "Análise em andamento" },
+          { data: "2023-04-05", evento: "Solicitação de documentos complementares" },
         ],
       },
       {
@@ -38,8 +39,8 @@ function DetalhesProtocolo() {
         status: "Concluído",
         responsavel: "Carlos Oliveira",
         prioridade: "Média",
-        descricao: "Renovação da licença de operação.",
-        observacoes: "Licença renovada com sucesso.",
+        descricao: "Renovação da licença de operação da unidade agroindustrial.",
+        observacoes: "Licença renovada com sucesso por mais 3 anos.",
         historico: [
           { data: "2023-03-25", evento: "Protocolo aberto" },
           { data: "2023-04-10", evento: "Documentação enviada" },
@@ -73,32 +74,12 @@ function DetalhesProtocolo() {
     }
   };
 
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case "Em andamento": return "⏳";
-      case "Concluído": return "✅";
-      case "Pendente": return "⏸️";
-      case "Atrasado": return "🔴";
-      default: return "";
-    }
-  };
-
   const getPrioridadeClass = (prioridade) => {
     switch (prioridade) {
       case "Urgente": return "urgent";
       case "Alta": return "high";
       case "Média": return "medium";
       case "Baixa": return "low";
-      default: return "";
-    }
-  };
-
-  const getPrioridadeIcon = (prioridade) => {
-    switch (prioridade) {
-      case "Urgente": return "🔴";
-      case "Alta": return "🟠";
-      case "Média": return "🟡";
-      case "Baixa": return "🟢";
       default: return "";
     }
   };
@@ -131,7 +112,9 @@ function DetalhesProtocolo() {
       <div className={styles.page}>
         <div className={styles.header}>
           <div>
-            <Link to="/protocolos" className={styles.backButton}>← Protocolos</Link>
+            <Link to="/protocolos" className={styles.backButton}>
+              ← Protocolos
+            </Link>
             <h1>Protocolo não encontrado</h1>
             <p>O protocolo que você está procurando não existe.</p>
           </div>
@@ -144,7 +127,9 @@ function DetalhesProtocolo() {
     <div className={styles.page}>
       <div className={styles.header}>
         <div>
-          <Link to="/protocolos" className={styles.backButton}>← Protocolos</Link>
+          <Link to="/protocolos" className={styles.backButton}>
+            ← Protocolos
+          </Link>
           <h1>{protocolo.numero}</h1>
           <p>Detalhes completos do protocolo</p>
         </div>
@@ -180,59 +165,59 @@ function DetalhesProtocolo() {
 
         <div className={styles.detailsGrid}>
           <div>
-            <span>Número do protocolo</span>
+            <span>NÚMERO</span>
             <strong>{protocolo.numero}</strong>
           </div>
 
           <div>
-            <span>Cliente</span>
+            <span>CLIENTE</span>
             <strong>{protocolo.cliente}</strong>
           </div>
 
           <div>
-            <span>Tipo</span>
+            <span>TIPO</span>
             <strong>{protocolo.tipo}</strong>
           </div>
 
           <div>
-            <span>Status</span>
+            <span>STATUS</span>
             <span className={`${styles.statusBadge} ${styles[getStatusClass(protocolo.status)]}`}>
               <span className={styles.dot}></span>
-              {getStatusIcon(protocolo.status)} {protocolo.status}
+              {protocolo.status}
             </span>
           </div>
 
           <div>
-            <span>Prioridade</span>
+            <span>PRIORIDADE</span>
             <span className={`${styles.prioridadeBadge} ${styles[getPrioridadeClass(protocolo.prioridade)]}`}>
-              {getPrioridadeIcon(protocolo.prioridade)} {protocolo.prioridade}
+              {protocolo.prioridade}
             </span>
           </div>
 
           <div>
-            <span>Responsável</span>
+            <span>RESPONSÁVEL</span>
             <strong>{protocolo.responsavel}</strong>
           </div>
 
           <div>
-            <span>Data de abertura</span>
+            <span>ABERTURA</span>
             <strong>{formatDate(protocolo.dataAbertura)}</strong>
           </div>
 
           <div>
-            <span>Data prevista</span>
+            <span>PREVISÃO</span>
             <strong>{formatDate(protocolo.dataPrevista)}</strong>
           </div>
 
           <div style={{ gridColumn: "1 / -1" }}>
-            <span>Descrição</span>
+            <span>DESCRIÇÃO</span>
             <strong style={{ fontSize: "14px", fontWeight: 400, lineHeight: 1.5 }}>
               {protocolo.descricao || "Sem descrição"}
             </strong>
           </div>
 
           <div style={{ gridColumn: "1 / -1" }}>
-            <span>Observações</span>
+            <span>OBSERVAÇÕES</span>
             <strong style={{ fontSize: "14px", fontWeight: 400, lineHeight: 1.5 }}>
               {protocolo.observacoes || "Sem observações"}
             </strong>

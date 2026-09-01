@@ -73,7 +73,7 @@ function Licencas() {
                     <td><span className={styles.vencimentoDate}>{formatDate(l.vencimento)} <span className={`${styles.daysBadge} ${styles[db.class]}`}>{db.text}</span></span></td>
                     <td><span className={`${styles.statusBadge} ${styles[getStatusClass(l.status)]}`}><span className={styles.dot}></span>{l.status}</span></td>
                     <td><div className={styles.actionButtons}>
-                      <Link to={`/licencas/${l.id}`} className={`${styles.actionBtn} ${styles.view}`}>🚫</Link>
+                      <Link to={`/licencas/${l.id}`} className={`${styles.actionBtn} ${styles.view}`}>👁</Link>
                       <Link to={`/licencas/${l.id}/editar`} className={`${styles.actionBtn} ${styles.edit}`}>✎</Link>
                       <button className={`${styles.actionBtn} ${styles.delete}`}>❌</button>
                     </div></td>

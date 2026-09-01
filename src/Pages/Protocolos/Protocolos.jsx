@@ -120,10 +120,10 @@ function Protocolos() {
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case "Em andamento": return "⏳";
-      case "Concluído": return "✅";
-      case "Pendente": return "⏸️";
-      case "Atrasado": return "🔴";
+      case "Em andamento": return "...";
+      case "Concluído": return "v";
+      case "Pendente": return "?";
+      case "Atrasado": return "!";
       default: return "";
     }
   };
@@ -205,7 +205,7 @@ function Protocolos() {
 
         <div className={`${styles.summaryCard} ${styles.warning}`}>
           <div className={styles.cardHeader}>
-            <span className={styles.cardIcon}>⏸️</span>
+            <span className={styles.cardIcon}></span>
             <span className={styles.cardLabel}>Pendentes</span>
           </div>
           <strong>{pendentes}</strong>
@@ -213,7 +213,6 @@ function Protocolos() {
 
         <div className={`${styles.summaryCard} ${styles.danger}`}>
           <div className={styles.cardHeader}>
-            <span className={styles.cardIcon}>🔴</span>
             <span className={styles.cardLabel}>Atrasados</span>
           </div>
           <strong>{atrasados}</strong>

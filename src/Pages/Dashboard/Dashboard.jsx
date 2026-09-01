@@ -15,8 +15,7 @@ function Dashboard() {
           </div>
         </div>
         <nav className={styles.menu}>
-          <Link to="/protocolos" className={styles.menuItem}>📄 Protocolos</Link>
-          <Link to="/protocolos" className={styles.quickButton}> <span>+</span> Novo protocolo</Link>
+       
           <Link to="/dashboard" className={`${styles.menuItem} ${styles.active}`}>📊 Dashboard</Link>
           <Link to="/clientes" className={styles.menuItem}>👤 Clientes</Link>
           <Link to="/licencas" className={styles.menuItem}>🗓️ Licenças</Link>

@@ -70,9 +70,8 @@ function Login() {
             </div>
 
             <div className={styles.options}>
-              <label className={styles.rememberMe}>
-                <input type="checkbox" /> Lembrar-me
-              </label>
+              
+           
               <Link to="/recuperar-senha" className={styles.forgotPassword}>
                 Esqueci a senha
               </Link>
