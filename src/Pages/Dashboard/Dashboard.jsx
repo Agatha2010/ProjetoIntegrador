@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 
+
+
+
 function Dashboard() {
   const navigate = useNavigate();
 
@@ -15,13 +18,17 @@ function Dashboard() {
           </div>
         </div>
         <nav className={styles.menu}>
-       
+      
+     
           <Link to="/dashboard" className={`${styles.menuItem} ${styles.active}`}>📊 Dashboard</Link>
           <Link to="/clientes" className={styles.menuItem}>👤 Clientes</Link>
           <Link to="/licencas" className={styles.menuItem}>🗓️ Licenças</Link>
           <Link to="/protocolos" className={styles.menuItem}>📝 Protocolos</Link>
           <Link to="/agenda" className={styles.menuItem}>📅 Agenda</Link>
           <Link to="/pagamentos" className={styles.menuItem}>💲 Pagamentos</Link>
+          <Link to="/especies" className={styles.menuItem}>🌱 Espécies</Link>
+          <Link to="/analises" className={styles.menuItem}>🌿 Análises Fitossociológicas</Link>
+          <Link to="/oficios" className={styles.menuItem}>📄 Ofícios</Link>
         </nav>
         <div className={styles.sidebarBottom}>
           <Link to="/dashboard" className={styles.menuItem}>⚙️ Configurações</Link>
@@ -33,18 +40,17 @@ function Dashboard() {
 
       <main className={styles.content}>
         <header className={styles.topbar}>
-          <div>
-            <h1>Dashboard</h1>
-            <p>Visão geral da gestão ambiental</p>
-          </div>
-          <div className={styles.userArea}>
-            <div className={styles.notification}>🔔</div>
-            <div className={styles.userInfo}>
-              <strong>Administrador</strong>
-              <span>Gestor</span>
-            </div>
-            <div className={styles.avatar}>👤</div>
-          </div>
+          // Na área do usuário (userArea), substitua o avatar:
+<div className={styles.userArea}>
+  <div className={styles.notification}>🔔</div>
+  <div className={styles.userInfo}>
+    <strong>Administrador</strong>
+    <span>Gestor</span>
+  </div>
+  <Link to="/perfil" className={styles.avatar}>
+    👤
+  </Link>
+</div>
         </header>
 
         <section className={styles.summaryCards}>
