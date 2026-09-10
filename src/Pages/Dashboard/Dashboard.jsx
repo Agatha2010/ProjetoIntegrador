@@ -40,8 +40,8 @@ function Dashboard() {
 
       <main className={styles.content}>
         <header className={styles.topbar}>
-          // Na área do usuário (userArea), substitua o avatar:
-<div className={styles.userArea}>
+          . 
+<div className={styles.userArea}>               
   <div className={styles.notification}>💬</div>
   <div className={styles.userInfo}>
     <strong>Administrador</strong>

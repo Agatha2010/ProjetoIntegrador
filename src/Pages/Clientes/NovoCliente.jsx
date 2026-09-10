@@ -104,7 +104,7 @@ function NovoCliente() {
           <div className={styles.formActions}>
             <Link to="/clientes" className={styles.cancelButton}>❌ Cancelar</Link>
             <button type="submit" className={styles.saveButton} disabled={salvando}>
-              {salvando ? "��� Salvando..." : "��� Salvar cliente"}
+              {salvando ? " Salvando..." : "Salvar cliente"}
             </button>
           </div>
         </form>
