@@ -20,18 +20,18 @@ function Dashboard() {
         <nav className={styles.menu}>
       
      
-          <Link to="/dashboard" className={`${styles.menuItem} ${styles.active}`}>📊 Dashboard</Link>
-          <Link to="/clientes" className={styles.menuItem}>👤 Clientes</Link>
-          <Link to="/licencas" className={styles.menuItem}>🗓️ Licenças</Link>
-          <Link to="/protocolos" className={styles.menuItem}>📝 Protocolos</Link>
-          <Link to="/agenda" className={styles.menuItem}>📅 Agenda</Link>
-          <Link to="/pagamentos" className={styles.menuItem}>💲 Pagamentos</Link>
-          <Link to="/especies" className={styles.menuItem}>🌱 Espécies</Link>
-          <Link to="/analises" className={styles.menuItem}>🌿 Análises Fitossociológicas</Link>
-          <Link to="/oficios" className={styles.menuItem}>📄 Ofícios</Link>
+          <Link to="/dashboard" className={`${styles.menuItem} ${styles.active}`}>Dashboard</Link>
+          <Link to="/clientes" className={styles.menuItem}> Clientes</Link>
+          <Link to="/licencas" className={styles.menuItem}> Licenças</Link>
+          <Link to="/protocolos" className={styles.menuItem}> Protocolos</Link>
+          <Link to="/agenda" className={styles.menuItem}> Agenda</Link>
+          <Link to="/pagamentos" className={styles.menuItem}> Pagamentos</Link>
+          <Link to="/especies" className={styles.menuItem}> Espécies</Link>
+          <Link to="/analises" className={styles.menuItem}> Análises Fitossociológicas</Link>
+          <Link to="/oficios" className={styles.menuItem}> Ofícios</Link>
         </nav>
         <div className={styles.sidebarBottom}>
-          <Link to="/dashboard" className={styles.menuItem}>⚙️ Configurações</Link>
+          <Link to="/dashboard" className={styles.menuItem}> Configurações</Link>
           <button className={`${styles.menuItem} ${styles.logout}`} onClick={() => navigate("/login")}>
             ➜ Sair
           </button>
@@ -42,7 +42,7 @@ function Dashboard() {
         <header className={styles.topbar}>
           // Na área do usuário (userArea), substitua o avatar:
 <div className={styles.userArea}>
-  <div className={styles.notification}>🔔</div>
+  <div className={styles.notification}>💬</div>
   <div className={styles.userInfo}>
     <strong>Administrador</strong>
     <span>Gestor</span>
